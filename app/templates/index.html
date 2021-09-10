@@ -9,6 +9,35 @@
         {% endif %}
     </head>
     <body>
-        <h2>{{heading}}</h2>
+        <h2 style="text-align: center;">{{heading}}</h2>
+        <hr>
+
+         <!-- Popular movie -->
+         <h3> Business</h3>
+         <ul>
+            {% for source in source_business %}
+                <li>{{source.name}}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Upcoming movie  -->
+        <h3>sports</h3>
+         <ul>
+            {% for sports in sports_sources  %}
+                <li>{{ sports.name}}</li>
+            {% endfor %}
+        </ul>
+        <!-- Now showing movie -->
+        <h3>technology</h3>
+         <ul>
+            {% for technology in technology_sources %}
+                <li>{{technology.name}}</li>
+            {% endfor %}
+        </ul>
+        <h3>entertainment</h3>
+
+        {% for entertainment in entertainment_sources%}
+        <li>{{entertainment.name}}</li>
+    {% endfor %}
     </body>
 </html>

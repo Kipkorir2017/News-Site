@@ -3,8 +3,8 @@ import urllib.request,json
 from datetime import datetime
 from.models import sources,articles
 
-Source=sources.Source
-Article=articles.Article
+Sources=sources.Sources
+Articles=articles.Articles
 
 
 
@@ -28,13 +28,13 @@ def getSource(category):
 
         sources_results=None
 
-        if getSource_response['results']:
-            sources_results_list=getSource_response['results']
+        if getSource_response['sources']:
+            sources_results_list=getSource_response['sources']
             sources_results=sources_results = process_results(sources_results_list)
 
     return sources_results
 
-def process_results(sources_list):
+def process_results(source_list):
     '''
     Function that processes the source results and transform them to a list of Objects
 
@@ -46,7 +46,7 @@ def process_results(sources_list):
 
     '''
     sources_results=[]
-    for sources_item in sources_list:
+    for sources_item in source_list:
         id=sources_item.get('id')
         name = sources_item.get('name') 
         description=sources_item.get('description')
@@ -54,7 +54,7 @@ def process_results(sources_list):
         category=sources_item.get('category') 
         country=sources_item.get('country')
 
-        sources_objects= Source(id, name, description, url, category, country)
+        sources_objects= Sources(id, name, description, url, category, country)
         sources_results.append(sources_objects)
-        
+
     return sources_results
