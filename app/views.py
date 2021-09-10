@@ -13,7 +13,7 @@ def index():
     heading='News Sources'
     return render_template('index.html', title=title,heading=heading)
 
-@app.route('/articles/<int:id>')
+@app.route('/sources/<int:id>')
 
 def articles(id):
     '''
