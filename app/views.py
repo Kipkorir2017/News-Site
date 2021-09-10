@@ -12,3 +12,11 @@ def index():
     title='Home-Welcome to The best news source site online'
     heading='News Sources'
     return render_template('index.html', title=title,heading=heading)
+
+@app.route('/articles/<int:id>')
+
+def articles(id):
+    '''
+    view root page function to returns the article page and its data
+    '''
+    return render_template('articles.html', id=id)
