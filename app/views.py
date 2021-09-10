@@ -10,5 +10,5 @@ def index():
 
     '''
     title='Home-Welcome to The best news source site online'
-
-    return render_template('index.html')
+    heading='News Sources'
+    return render_template('index.html', title=title,heading=heading)
