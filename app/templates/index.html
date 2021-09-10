@@ -1,43 +1,48 @@
+
+{% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> Welcome to the best News sources site </title>
-        {% endif %}
-    </head>
-    <body>
-        <h2 style="text-align: center;">{{heading}}</h2>
-        <hr>
 
-         <!-- Popular movie -->
-         <h3> Business</h3>
-         <ul>
-            {% for source in source_business %}
-                <li>{{source.name}}</li>
-            {% endfor %}
-        </ul>
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best News sources site </title>
+    {% endif %}
+</head>
 
-        <!-- Upcoming movie  -->
-        <h3>sports</h3>
-         <ul>
-            {% for sports in sports_sources  %}
-                <li>{{ sports.name}}</li>
-            {% endfor %}
-        </ul>
-        <!-- Now showing movie -->
-        <h3>technology</h3>
-         <ul>
-            {% for technology in technology_sources %}
-                <li>{{technology.name}}</li>
-            {% endfor %}
-        </ul>
-        <h3>entertainment</h3>
+<body>
+    <h2 style="text-align: center;color:tomato">{{heading}}</h2>
+    <hr>
 
-        {% for entertainment in entertainment_sources%}
-        <li>{{entertainment.name}}</li>
-    {% endfor %}
-    </body>
+    <!-- #Business section -->
+    <h3> Business</h3>
+    <ul>
+        {{ macro.displaySourceList(source_business)}}
+    </ul>
+
+    <!-- #Sport section -->
+    <h3>sports</h3>
+    <ul>
+        {{ macro.displaySourceList(sports_sources)}}
+    </ul>
+    <!-- #Technology section -->
+    <h3>Technology</h3>
+    <ul>
+        {{ macro.displaySourceList(technology_sources)}}
+    </ul>
+    <!-- #Entertainment -->
+        <h3>Entertainment</h3>
+    <ul>
+        {{ macro.displaySourceList(entertainment_sources)}}
+    </ul>
+    <!-- #General section -->
+        <h3>General</h3>
+    <ul>
+        {{ macro.displaySourceList(general_sources)}}
+    </ul>
+
+</body>
+
 </html>

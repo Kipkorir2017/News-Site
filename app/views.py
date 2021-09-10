@@ -15,11 +15,12 @@ def index():
     sports_sources = getSource('sports')
     technology_sources = getSource('technology')
     entertainment_sources = getSource('entertainment')
+    general_sources=getSource('general')
 
-    title='Home-Welcome to The best news source site online'
+    title='Home-Welcome to The best news sources site online'
     heading='News Sources'
 
-    return render_template('index.html', title=title,heading=heading,source_business = source_business,sports_sources = sports_sources,technology_sources = technology_sources,entertainment_sources = entertainment_sources)
+    return render_template('index.html', title=title,heading=heading,general_sources=general_sources,source_business = source_business,sports_sources = sports_sources,technology_sources = technology_sources,entertainment_sources = entertainment_sources)
 
 @app.route('/sources/<int:id>')
 
