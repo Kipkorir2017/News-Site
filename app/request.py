@@ -97,13 +97,12 @@ def process_articles(articles_list):
             image = article_item.get('urlToImage')
             publishedAt = article_item.get('publishedAt')
 
-        # convert date from json to string and backto my specific  format
+        # convert date from json to string and back to my specific  format
             dates = datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
             date = dates.strftime('%d.%m.%Y')
 		
         if image:
-            articles_result = Articles(
-                id, author, title, description, url, image, date)
+            articles_result = Articles(id, author, title, description, url, image, date)
             articles_object.append(articles_result)
 
         return articles_object

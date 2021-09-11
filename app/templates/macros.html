@@ -1,27 +1,12 @@
 <!-- #source section -->
 {% macro displaySourceList(source_list) %}
 
-    {% for source in source_list %}
-        <li>{{ source.name}}</li>
-       
-    {% endfor %}
-
-{% endmacro %}
-
-<!-- #article setion -->
-
-{% macro displayArticleList(articles_list) %}
-
-    {% for article in articles_list %}
-
-    <div class="card" style="width: 18rem;">
-        <img src="{{article.image}}" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{article.name}}</h5>
-          <p class="card-text">{{article.description}}</p>
-          <a href="#" class="btn btn-primary"></a>
-        </div>
-      </div>
-    {% endfor %}
+{% for source in source_list %}
+<li style="color:rgb(197, 38, 32)">{{ source.name}}</li>
+<li>{{source.description |truncate(120)}}</li>
+<div class="btn-group">
+    <button type="button" class="btn btn-primary" href="">visit{{source.name}}</button>
+</div>
+{% endfor %}
 
 {% endmacro %}
