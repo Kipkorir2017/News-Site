@@ -37,6 +37,6 @@ You can provide feedback or reach on these contact details:
 1. pkobenj41@gmail.com
 2. 0710383269
 ## License
-License: <a></a>
+License: <a>https://github.com/Kipkorir2017/News-Site/blob/master/LICENSE</a>
 
 Copyright &#169; 2021 Benjamin Kipkorir Tonui
