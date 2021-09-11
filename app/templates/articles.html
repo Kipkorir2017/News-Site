@@ -1,4 +1,4 @@
-{% extends 'base.html'%}
+<!-- {% extends 'base.html'%}
 <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
@@ -8,4 +8,27 @@
       <a href="#" class="btn btn-primary"></a>
       {%endfor%}
     </div>
-  </div>
+  </div> -->
+
+  {% extends 'base.html'%}
+<!-- Content block -->
+{% block content %}
+<div class="container">
+
+    <!-- Poster background -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 imageurl" style="background: url({{article.image}}) no-repeat center center">
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <h3>{{ article.title }}</h3>
+
+            <h5 class="overview"> {{ article.description}}</h5>
+            <p class="Date"> <b> Published on:{{ article.publishedAt|date }}</b> </p>
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

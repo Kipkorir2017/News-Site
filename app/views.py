@@ -29,6 +29,6 @@ def articles(id):
     view root page function to returns the article page and its data
     '''
     articles = get_articles(id)
-   
+    title = f'{articles.title}'
 
-    return render_template('articles.html', id=id,articles=articles)
+    return render_template('articles.html',title=title, id=id,articles=articles)
