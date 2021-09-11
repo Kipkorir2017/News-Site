@@ -58,3 +58,52 @@ def process_results(source_list):
         sources_results.append(sources_objects)
 
     return sources_results
+
+def get_articles(id):
+    '''
+    Function that returns the articles objects
+
+    '''
+    get_article_url=base_url.format(id,api_key)
+    with urllib.request.urlopen(get_article_url)as url:
+        get_article_data=url.read()
+        get_article_response=json.loads(get_article_data)
+
+        articles_object = None
+        if get_article_response['articles']:
+            articles_object = process_articles(get_article_response['articles'])
+
+    return articles_object 
+
+
+
+def process_articles(articles_list):
+        '''
+        Function that processes the articles results and transform them to a list of Objects
+
+        Args:
+            article_list: A list of dictionaries that contain sources details
+
+        Returns:
+            article_results: A list of sources objects
+        '''
+        articles_object = []
+        for article_item in articles_list:
+            id = article_item.get('id')
+            author = article_item.get('author')
+            title = article_item.get('title')
+            description = article_item.get('description')
+            url = article_item.get('url')
+            image = article_item.get('urlToImage')
+            publishedAt = article_item.get('publishedAt')
+
+        # convert date from json to string and backto my specific  format
+            dates = datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
+            date = dates.strftime('%d.%m.%Y')
+		
+        if image:
+            articles_result = Articles(
+                id, author, title, description, url, image, date)
+            articles_object.append(articles_result)
+
+        return articles_object
