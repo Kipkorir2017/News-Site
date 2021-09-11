@@ -2,10 +2,10 @@
 {% macro displaySourceList(source_list) %}
 
 {% for source in source_list %}
-<li style="color:rgb(197, 38, 32)">{{ source.name}}</li>
+<li style="color:#c52620;font-weight:900;font-size:20px;">{{ source.name}}</li>
 <li>{{source.description |truncate(120)}}</li>
 <div class="btn-group">
-    <button type="button" class="btn btn-primary" href="">visit{{source.name}}</button>
+    <button  class="btn btn-primary" href="/sources/{{source.id}}">visit <span>{{source.name}}</span></button>
 </div>
 {% endfor %}
 

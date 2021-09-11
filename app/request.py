@@ -3,6 +3,7 @@ import urllib.request,json
 from datetime import datetime
 from.models import sources,articles
 
+
 Sources=sources.Sources
 Articles=articles.Articles
 
@@ -71,7 +72,8 @@ def get_articles(id):
 
         articles_object = None
         if get_article_response['articles']:
-            articles_object = process_articles(get_article_response['articles'])
+            get_source_article=get_article_response['articles']
+            articles_object = process_articles(get_source_article)
 
     return articles_object 
 
@@ -97,12 +99,10 @@ def process_articles(articles_list):
             image = article_item.get('urlToImage')
             publishedAt = article_item.get('publishedAt')
 
-        # convert date from json to string and back to my specific  format
-            dates = datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
-            date = dates.strftime('%d.%m.%Y')
+ 
 		
-        if image:
-            articles_result = Articles(id, author, title, description, url, image, date)
+            # if image:
+            articles_result = Articles(id, author, title, description, url, image,publishedAt)
             articles_object.append(articles_result)
 
         return articles_object

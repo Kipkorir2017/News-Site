@@ -22,13 +22,14 @@ def index():
 
     return render_template('index.html', title=title,heading=heading,general_sources=general_sources,source_business = source_business,sports_sources = sports_sources,technology_sources = technology_sources,entertainment_sources = entertainment_sources)
 
-@app.route('/sources/<int:id>')
+@app.route('/sources/<id>')
 
 def articles(id):
     '''
     view root page function to returns the article page and its data
     '''
-    articles = get_articles(id)
-    title = f'{articles.title}'
+    
+    source_articles = get_articles(id)
+    # title = f'{articles.title}'
 
-    return render_template('articles.html',title=title, id=id,articles=articles)
+    return render_template('articles.html', id=id,source_articles=source_articles)
