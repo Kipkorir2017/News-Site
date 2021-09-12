@@ -9,10 +9,10 @@
     <div class="row">
       {%for article in source_articles%}
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
-            <h3>{{ article.image }}</h3>
+           <img src="{{ article.image }}" alt="image not displayed" class="img-responsive">
 
-            <h5 class="overview"> {{ article.description}}</h5>
-            <p class="Date"> <b> Published on:{{ article.date }}</b> </p>
+            <h5 class="overview"> {{ article.description |truncate(70)}}</h5>
+            <p class="Date"> <b> Published on:{{ article.publishedAt }}</b> </p>
 
 
         </div>

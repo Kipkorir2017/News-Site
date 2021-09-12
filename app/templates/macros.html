@@ -5,8 +5,24 @@
 <li style="color:#c52620;font-weight:900;font-size:20px;">{{ source.name}}</li>
 <li>{{source.description |truncate(120)}}</li>
 <div class="btn-group">
-    <button  class="btn btn-primary" href="/sources/{{source.id}}">visit <span>{{source.name}}</span></button>
+    <a type="button" class="btn btn-primary" href="/sources/{{source.id}}" target="_blank">visit<span>{{source.name}}</span></a>
 </div>
 {% endfor %}
 
 {% endmacro %}
+
+<!-- {% macro displaySourceList(source_list) %}
+
+{% for source in source_list %}
+
+<div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-body">{{ source.name}}</div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">{{source.description |truncate(120)}}</div>
+    </div>
+  </div>
+  {% endfor %}
+
+{% endmacro %} -->

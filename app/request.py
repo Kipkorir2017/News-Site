@@ -65,7 +65,7 @@ def get_articles(id):
     Function that returns the articles objects
 
     '''
-    get_article_url=base_url.format(id,api_key)
+    get_article_url=article_url.format(id,api_key)
     with urllib.request.urlopen(get_article_url)as url:
         get_article_data=url.read()
         get_article_response=json.loads(get_article_data)
@@ -99,10 +99,11 @@ def process_articles(articles_list):
             image = article_item.get('urlToImage')
             publishedAt = article_item.get('publishedAt')
 
- 
+            dates = datetime.strptime(publishedAt, '%Y-%m-%dT%H:%M:%SZ')
+            date = dates.strftime('%d.%m.%Y')
 		
             # if image:
-            articles_result = Articles(id, author, title, description, url, image,publishedAt)
+            articles_result = Articles(id, author, title, description, url, image,date)
             articles_object.append(articles_result)
 
         return articles_object
