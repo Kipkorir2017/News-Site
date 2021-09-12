@@ -2,40 +2,47 @@
 {% import 'macros.html' as macro%}
 
 {% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-    
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@200&display=swap" rel="stylesheet">
 {% endblock %}
 
-    {% block content %}
-    <h2 style="text-align: center;color:tomato">{{heading}}</h2>
-    <hr>
+{% block content %}
+<h2 style="font-family: 'Urbanist', sans-serif;font-weight:900;font-size:25px;text-align:center;color:tomato">{{heading}}</h2>
+<hr>
 
-    <!-- #Business section -->
-    <h3> Business</h3>
-    <ul>
-        {{ macro.displaySourceList(source_business)}}
-    </ul>
+<!-- #Business section -->
+<h3 style="font-family: 'Urbanist', sans-serif;font-weight:900;"> Business</h3>
+<hr>
+<ul>
+    {{ macro.displaySourceList(source_business)}}
+</ul>
 
-    <!-- #Sport section -->
-    <h3>sports</h3>
-    <ul>
-        {{ macro.displaySourceList(sports_sources)}}
-    </ul>
-    <!-- #Technology section -->
-    <h3>Technology</h3>
-    <ul>
-        {{ macro.displaySourceList(technology_sources)}}
-    </ul>
-    <!-- #Entertainment -->
-        <h3>Entertainment</h3>
-    <ul>
-        {{ macro.displaySourceList(entertainment_sources)}}
-    </ul>
-    <!-- #General section -->
-        <h3>General</h3>
-    <ul>
-        {{ macro.displaySourceList(general_sources)}}
-    </ul>
+<!-- #Sport section -->
+<h3 style="font-family: 'Urbanist', sans-serif; font-weight:900;"><b>sports</b></h3>
+<hr>
+<ul>
+    {{ macro.displaySourceList(sports_sources)}}
+</ul>
+<!-- #Technology section -->
+<h3 style="font-family: 'Urbanist', sans-serif;font-weight:900;"> <b>Technology</b></h3>
+<hr>
+<ul>
+    {{ macro.displaySourceList(technology_sources)}}
+</ul>
+<!-- #Entertainment -->
+<h3 style="font-family: 'Urbanist', sans-serif;font-weight:900;">Entertainment</h3>
+<hr>
+<ul>
+    {{ macro.displaySourceList(entertainment_sources)}}
+</ul>
+<!-- #General section -->
+<h3 style="font-family: 'Urbanist', sans-serif;font-weight:900;"><b>General</b></h3>
+<ul>
+    {{ macro.displaySourceList(general_sources)}}
+</ul>
 
-    {% endblock%}
+{% endblock%}

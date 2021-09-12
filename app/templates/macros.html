@@ -1,28 +1,24 @@
-<!-- #source section -->
+
+<!-- Content block -->
 {% macro displaySourceList(source_list) %}
-
-{% for source in source_list %}
-<li style="color:#c52620;font-weight:900;font-size:20px;">{{ source.name}}</li>
-<li>{{source.description |truncate(120)}}</li>
-<div class="btn-group">
-    <a type="button" class="btn btn-primary" href="/sources/{{source.id}}" target="_blank">visit<span>{{source.name}}</span></a>
-</div>
-{% endfor %}
-
-{% endmacro %}
-
-<!-- {% macro displaySourceList(source_list) %}
-
-{% for source in source_list %}
-
-<div class="panel-group">
+<div class="row">
+  {% for source in source_list%}
+  <div class="col-md-4">
     <div class="panel panel-default">
-      <div class="panel-body">{{ source.name}}</div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-body">{{source.description |truncate(120)}}</div>
+      <div class="panel-heading">
+        <a href="/sources/{{source.id}}" style="font-weight: 700; color:navy; font-size:16pt">
+         <span  style="color:rgb(243, 106, 106); font-family: 'Urbanist', sans-serif;font-weight:900;"> {{ source.name}}</span>
+        </a>
+      </div>
+      <div class="panel-body">
+        <p style="font-family: 'Urbanist', sans-serif;font-weight:900; font-size:20px;">
+          {{ source.description |truncate(100)}}
+        </p>
+        <a href="/sources/{{source.id}}" class="btn btn-sm btn-primary" style="font-family: 'Urbanist', sans-serif;font-size:18px">Visit {{source.name}}</a>
+      </div>
     </div>
   </div>
   {% endfor %}
+</div>
 
-{% endmacro %} -->
+{% endmacro %}
